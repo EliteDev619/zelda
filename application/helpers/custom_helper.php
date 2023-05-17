@@ -47,3 +47,33 @@ if (!function_exists('_alertPopup')) {
 		return $ci->session->set_flashdata('message', $alert);
 	}
 }
+
+
+if (!function_exists('appLogout')) {
+	function appLogout()
+	{
+		$ci = &get_instance();
+		$ci->load->library('session');
+		$ci->session->unset_userdata('zelda_user_data');
+
+		redirect('');
+	}
+}
+
+if (!function_exists('appLoginCheck')) {
+	function appLoginCheck($status)
+	{
+		$ci = &get_instance();
+		$user_id = $ci->session->userdata('zelda_user_data');
+
+		if ($status == TRUE) {
+			if ($user_id == FALSE) {
+				redirect(base_url('auth'));
+			}
+		} else {
+			if ($user_id == TRUE) {
+				redirect(base_url());
+			}
+		}
+	}
+}

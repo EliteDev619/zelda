@@ -24,6 +24,22 @@ class Users_Model extends CI_Model{
         return $result;
     }
 
+    public function delete($id){
+        $this->db->where('user_id', $id);
+        return $this->db->delete('tbl_users');
+    }
+    
+    public function update($data, $id){
+        $this->db->where('user_id', $id);
+        return $this->db->update('tbl_users', $data);
+    }
+    
+    public function update_status($id, $status) {
+        $this->db->set('status', $status);
+        $this->db->where('user_id', $id);
+        return $this->db->update('tbl_users');
+    }
+    
     public function getUserAccount($filter = array()){
         if(array_key_exists('mobcompanyid', $filter))
         {
@@ -139,21 +155,7 @@ class Users_Model extends CI_Model{
     }
     
     
-    public function delete($id){
-        $this->db->where('user_id', $id);
-        return $this->db->delete('tbl_users');
-    }
     
-    public function update($data, $id){
-        $this->db->where('user_id', $id);
-        return $this->db->update('tbl_users', $data);
-    }
-    
-    public function update_status($id, $status) {
-        $this->db->set('status', $status);
-        $this->db->where('user_id', $id);
-        return $this->db->update('tbl_users');
-    }
     function check_unique_order_no($username,$id = '') {
         $this->db->where('username', $username);
         $this->db->where('status', "1");

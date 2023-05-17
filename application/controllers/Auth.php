@@ -5,6 +5,7 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
+        appLoginCheck(FALSE);
         $data = array();
         $data['link'] = 'auth';
 		getMainContent('pages/auth', $data);
@@ -20,7 +21,7 @@ class Auth extends CI_Controller {
         if($check_username){
             $result = $this->users_model->getUser($data);
             if(count($result) > 0){
-                $this->session->user_data = $result;
+                $this->session->zelda_user_data = $result[0];
                 redirect(base_url(''));
             } else {
                 _alertPopup('Auth info is incorrect.', 'error');
@@ -58,6 +59,6 @@ class Auth extends CI_Controller {
     }
 
     public function logout(){
-
+        appLogout();
     }
 }

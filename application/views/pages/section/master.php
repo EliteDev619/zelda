@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <script src="<?=base_url();?>assets/js/jquery.min.js"></script>
-        
+
         <!-- Links of CSS files -->
         <link rel="stylesheet" href="<?=base_url();?>assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/animate.min.css">
@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/css/style.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/responsive.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.css"/>
+        <link rel="stylesheet" href="<?=base_url();?>assets/css/custom.css">
 
         <title>Zelda || Betting</title>
 
@@ -100,7 +101,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-5">
-                        <p><i class='bx bx-copyright'></i>2020 <a href="#">Zelda</a> games Pty Ltd.</p>
+                        <p><i class='bx bx-copyright'></i><?php echo date('Y'); ?>  <a href="#"> Zelda</a> games Pty Ltd.</p>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-7">

@@ -1,5 +1,6 @@
-<!-- Start Banner Area -->
-<div class="banner-wrapper-area jarallax" data-jarallax='{"speed": 0.3}'>
+        
+        <!-- Start Banner Area -->
+        <div class="banner-wrapper-area jarallax" data-jarallax='{"speed": 0.3}'>
             <div class="container">
                 <div class="banner-wrapper-content">
                     <div class="logo">
@@ -11,7 +12,7 @@
             </div>
         </div>
         <!-- End Banner Area -->
-
+        
         <!-- Start Popular Leagues Area -->
         <section class="popular-leagues-area pt-100 pb-70">
             <div class="container">

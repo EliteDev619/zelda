@@ -12,3 +12,9 @@ $route['auth'] = 'auth';
 $route['auth/login'] = 'auth/login';
 $route['auth/register'] = 'auth/register';
 $route['logout'] = 'auth/logout';
+
+// Application Profile
+$route['profile'] = 'profile';
+
+// Application User
+$route['user/update_password'] = 'users/updatePassword';
