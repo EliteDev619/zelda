@@ -30,7 +30,7 @@
     <body>
 
         <!-- Start Navbar Area -->
-        <div class="navbar-area">
+        <div class="navbar-area" style="background:#22152c !important">
             <div class="zelda-responsive-nav">
                 <div class="container">
                     <div class="zelda-responsive-menu">

@@ -10,6 +10,17 @@ class Users_Model extends CI_Model{
         $this->db->select('ua.*', false);
         $this->db->from('tbl_users ua');
 
+        // Filter by Id
+        if(array_key_exists('id', $filter)){
+            $this->db->where('ua.user_id', $filter['id']);
+            return $this->db->get()->row();   
+        }
+
+        // Filter by Role
+        if(array_key_exists('role', $filter)){
+            $this->db->where('ua.role_id', $filter['role']);
+        }
+
         // Filter by username
         if(array_key_exists('username', $filter)){
             $this->db->where('ua.username', $filter['username']);
@@ -39,7 +50,7 @@ class Users_Model extends CI_Model{
         $this->db->where('user_id', $id);
         return $this->db->update('tbl_users');
     }
-    
+
     public function getUserAccount($filter = array()){
         if(array_key_exists('mobcompanyid', $filter))
         {

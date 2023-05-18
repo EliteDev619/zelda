@@ -55,6 +55,7 @@ if (!function_exists('appLogout')) {
 		$ci = &get_instance();
 		$ci->load->library('session');
 		$ci->session->unset_userdata('zelda_user_data');
+		$ci->session->unset_userdata('zelda_user_id');
 
 		redirect('');
 	}
@@ -64,7 +65,7 @@ if (!function_exists('appLoginCheck')) {
 	function appLoginCheck($status)
 	{
 		$ci = &get_instance();
-		$user_id = $ci->session->userdata('zelda_user_data');
+		$user_id = $ci->session->userdata('zelda_user_id');
 
 		if ($status == TRUE) {
 			if ($user_id == FALSE) {
@@ -75,5 +76,34 @@ if (!function_exists('appLoginCheck')) {
 				redirect(base_url());
 			}
 		}
+	}
+}
+
+if (!function_exists('appAdminCheck')) {
+	function appAdminCheck($status)
+	{
+		$ci = &get_instance();
+
+		if ($status == TRUE) {
+			if (!is_admin()) {
+				redirect(base_url(''));
+			}
+		} else {
+			if (is_admin()) {
+				redirect(base_url());
+			}
+		}
+	}
+}
+
+if (!function_exists('is_admin')) {
+	function is_admin()
+	{
+		$ci = &get_instance();
+		$ci->load->library('session');
+		if ($ci->session->zelda_user_data->role_id == 1) {
+			return true;
+		}
+		return false;
 	}
 }

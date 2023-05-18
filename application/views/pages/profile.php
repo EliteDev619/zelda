@@ -17,7 +17,7 @@
 <section class="products-details-area ptb-50">
     <div class="plr-50">
         <h1>Welcome <?=$this->session->zelda_user_data->username?>!</h1>
-        <h5>Your ticket amount is <?=$this->session->zelda_user_data->tickets?>! You will get 6 tickets per day!</h5>
+        <h5>Your ticket amount is <?=$user->tickets?>! You will get 6 tickets per day!</h5>
     </div>
             <div class="container">
                 <div class="row align-items-center">

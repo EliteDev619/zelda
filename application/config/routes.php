@@ -17,4 +17,13 @@ $route['logout'] = 'auth/logout';
 $route['profile'] = 'profile';
 
 // Application User
+$route['user/add'] = 'user/add';
 $route['user/update_password'] = 'users/updatePassword';
+
+// Application Admin
+$route['admin'] = 'admin';
+
+// Application Event
+$route['events/add'] = 'events/add';
+$route['events/update'] = 'events/update';
+

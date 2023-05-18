@@ -22,7 +22,13 @@ class Auth extends CI_Controller {
             $result = $this->users_model->getUser($data);
             if(count($result) > 0){
                 $this->session->zelda_user_data = $result[0];
-                redirect(base_url(''));
+                $this->session->zelda_user_id = $result[0]->user_id;
+
+                if($result[0]->role_id == 1){
+                    redirect(base_url('admin'));
+                } else {
+                    redirect(base_url(''));
+                }
             } else {
                 _alertPopup('Auth info is incorrect.', 'error');
                 redirect(base_url('auth'));
@@ -46,14 +52,14 @@ class Auth extends CI_Controller {
             $result = $this->users_model->save($data);
             if($result){
                 _alertPopup('Your account created successfully.', 'success');
-                redirect(base_url('auth'));
+                redirect($_SERVER['HTTP_REFERER']);
             } else {
                 _alertPopup('Register failed due to some issue.', 'warning');
-                redirect(base_url('auth'));
+                redirect($_SERVER['HTTP_REFERER']);
             }
         } else {
             _alertPopup('Username already exist.', 'error');
-            redirect(base_url('auth'));
+            redirect($_SERVER['HTTP_REFERER']);
         }   
 
     }
