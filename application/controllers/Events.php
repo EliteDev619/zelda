@@ -22,10 +22,22 @@ class Events extends CI_Controller {
         $result = $this->events_model->save($data);
         if($result){
             _alertPopup('Event created successfully.', 'success');
-            redirect(base_url('admin'));
+            redirect($_SERVER['HTTP_REFERER']);
         } else {
             _alertPopup('Creating event failed due to some issue.', 'warning');
-            redirect(base_url('admin'));
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    public function delete($id)
+    {
+        $result = $this->events_model->delete($id);
+        if($result){
+            _alertPopup('Event deleted successfully.', 'success');
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            _alertPopup('Event deleted failed.', 'warning');
+            redirect($_SERVER['HTTP_REFERER']);
         }
     }
 }

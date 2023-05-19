@@ -78,8 +78,8 @@
 
                                                                 <td class="product-subtotal">
                                                                     <div style='display:flex'>
-                                                                        <a href="#" class="" style='padding-right:10px'><i class='bx bx-edit'></i></a>
-                                                                        <a href="#" class=""><i class='bx bx-trash'></i></a>
+                                                                        <a href="#" id='editEvent' data-toggle="modal" data-target="#addEventModal" style='padding-right:10px'><i class='bx bx-edit'></i></a>
+                                                                        <a href="<?=base_url('events/delete/'.$event->event_id)?>" class=""><i class='bx bx-trash'></i></a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -200,12 +200,6 @@
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" style="background: #41155c;">
-                    <!-- <div class="modal-header">
-                        <h5 class="modal-title" id="addEventModalTitle">Add Events</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div> -->
                     <div class="modal-header">
                         <h5 class="modal-title" id="addEventModalTitle">Add Events</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -282,3 +276,4 @@
                 </div>
             </div>
         </div>
+

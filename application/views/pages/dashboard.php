@@ -68,7 +68,7 @@
 
                                         <?php 
                                             $remainTime = (int)strtotime($event->event_deadline) - (int)$server_time;
-                                            if($remain > 0){
+                                            if($remainTime > 0){
                                                 echo "<p style='margin-top:10px; color:#22152c'>Remain time <span id='clock_".$event->event_id."'></span></p>";
                                                 $remain['clock_'.$event->event_id] = $remainTime;
                                             } else {
