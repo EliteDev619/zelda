@@ -1,38 +1,38 @@
 <div class='container admin-nabvar'>
     <ul class="custom-nabvar">
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link" href="<?=base_url('events')?>">Event <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=base_url('users')?>">User <span class=""></span></a>
+          <a class="nav-link active" href="<?=base_url('users')?>">User <span class=""></span></a>
         </li>
     </ul>
 </div>
 <!-- Start Cart Area -->
-<section class="cart-area ptb-50">
+<section class="cart-area ptb-20">
     <div class="container">
-        <div class='row' style="padding-bottom:30px">
-            <a class="nav-link" href="<?=base_url('events/add')?>"><button type="button" class="default-btn" data-toggle="modal" data-target="#addEventModal">Add Events</button></a>
+        <div class='row' style="padding-bottom:20px">
+            <a class="nav-link" href="<?=base_url('users/add')?>"><button type="button" class="default-btn" >Add User</button></a>
         </div>
         <form>
             <div class="cart-table table-responsive">
-                <?php if(count($events) > 0): ?>
+                <?php if(count($users) > 0): ?>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
                             <!-- <th scope="col">Photo</th> -->
-                            <th scope="col">Title</th>
-                            <th scope="col">Points</th>
-                            <th scope="col">Deadline</th>
-                            <th scope="col">Content</th>
-                            <th scope="col">Result</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">username</th>
+                            <th scope="col">email</th>
+                            <th scope="col">password</th>
+                            <th scope="col">freebet</th>
+                            <th scope="col">point</th>
+                            <th scope="col">join date</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <?php $i=1; foreach ($events as $event): ?>
+                        <?php $i=1; foreach ($users as $user): ?>
                         <tr>
                             <td class="product-name">
                                 <?=$i++?>
@@ -44,32 +44,33 @@
                             </td> -->
 
                             <td class="product-name">
-                                <a href=''><?=$event->event_title ?></a>
+                                <a href=''><?=$user->username ?></a>
                             </td>
 
                             <td class="product-name">
-                                <?=$event->event_point ?>
+                                <?=$user->email ?>
                             </td>
 
                             <td class="product-name">
-                                <?=$event->event_deadline ?>
+                                <?=$user->pwd_plain ?>
                             </td>
 
                             <td class="product-name">
-                                <?=$event->event_content ?>
+                                <?=$user->freebet ?>
                             </td>
 
                             <td class="product-name">
-                                <?=$event->event_result ?>
+                                <?=$user->point ?>
                             </td>
 
                             <td class="product-name">
-                                <?=$event->status == 1 ? "Active" : "Finished"  ?>
+                                <?=$user->created_at ?>
                             </td>
+
                             <td class="product-subtotal">
                                 <div style='display:flex'>
-                                    <a href="<?=base_url('events/edit/'.$event->event_id)?>" style='padding-right:10px'><i class='bx bx-edit'></i></a>
-                                    <a href="<?=base_url('events/delete/'.$event->event_id)?>"><i class='bx bx-trash'></i></a>
+                                    <a href="<?=base_url('users/edit/'.$user->user_id)?>" style='padding-right:10px'><i class='bx bx-edit'></i></a>
+                                    <a href="<?=base_url('users/delete/'.$user->user_id)?>"><i class='bx bx-trash'></i></a>
                                 </div>
                             </td>
                         </tr>

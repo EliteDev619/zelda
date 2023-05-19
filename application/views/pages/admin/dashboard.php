@@ -9,7 +9,7 @@
     </ul>
 </div>
 <!-- Start Cart Area -->
-<section class="cart-area ptb-50">
+<section class="cart-area ptb-20">
     <div class="container">
         <div class='row' style="padding-bottom:30px">
             <a class="nav-link" href="<?=base_url('events/add')?>"><button type="button" class="default-btn" data-toggle="modal" data-target="#addEventModal">Add Events</button></a>

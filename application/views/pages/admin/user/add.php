@@ -9,31 +9,38 @@
     </ul>
 </div>
 
-<section class="products-details-area  ptb-50">
+<section class="products-details-area  ptb-20">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-12 col-md-12">
-                <form action="<?=base_url('events/save');?>" method='POST' enctype="multipart/form-data" id='eventFrom'>
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" class="form-control" name='event_title' placeholder="Event Title" required>
+                <h3>Add User</h3>
+                <form action="<?=base_url('users/save');?>" method='POST' enctype="multipart/form-data">
+                    <div class='row'>
+                        <div class="form-group col-md-4">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name='username' placeholder="Username" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name='email' placeholder="Email" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name='pwd_plain' placeholder="Pasword" required>
+                        </div>
                     </div>
-                
-                    <div class="form-group">
-                        <label>Points</label>
-                        <input type="number" class="form-control" name='event_point' placeholder="Event Points" required>
+
+                    <div class='row'>
+                        <div class="form-group col-md-6">
+                            <label>Freebet</label>
+                            <input type="number" class="form-control" name='freebet' placeholder="Freebet" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Point</label>
+                            <input type="number" class="form-control" name='point' placeholder="Point" >
+                        </div>
                     </div>
-                
-                    <div class="form-group">
-                        <label>Deadline</label>
-                        <input type="datetime-local" class="form-control" name='event_deadline' placeholder="Event Deadline" required>
-                    </div>
-                
-                    <div class="form-group">
-                        <label>Content</label>
-                        <textarea class="form-control" name="event_content" cols="30" rows="5" required placeholder="Event Content"></textarea>
-                    </div>
-                
+
                     <button type="submit" class="btn default-btn float-right">Save changes</button>
                 </form>
             </div>

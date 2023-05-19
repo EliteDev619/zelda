@@ -8,6 +8,11 @@
     padding-right: 50px;
 }
 
+.ptb-20{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .custom-nabvar{
     display: flex;
     flex-direction: row;

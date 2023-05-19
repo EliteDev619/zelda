@@ -16,6 +16,9 @@ class Events extends CI_Controller {
 	}
 
     public function add(){
+        appLoginCheck(TRUE);
+        appAdminCheck(TRUE);
+
 		getMainContent('pages/admin/event/add', []);
     }
 
@@ -35,6 +38,9 @@ class Events extends CI_Controller {
     }
 
     public function edit($id){
+        appLoginCheck(TRUE);
+        appAdminCheck(TRUE);
+        
 		$data = array();
 		$data['event'] = $this->events_model->getEvent(array('id'=>$id));
 

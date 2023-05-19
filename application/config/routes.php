@@ -18,8 +18,12 @@ $route['profile'] = 'profile';
 
 // Application User
 $route['users'] = 'users';
-$route['user/add'] = 'user/add';
-$route['user/update_password'] = 'users/updatePassword';
+$route['users/add'] = 'users/add';
+$route['users/save'] = 'users/save';
+$route['users/update_password'] = 'users/updatePassword';
+$route['users/edit/(:number)'] = 'users/edit/$1';
+$route['users/update/(:number)'] = 'users/update/$1';
+$route['users/delete/(:number)'] = 'users/delete/$1';
 
 // Application Admin
 $route['admin'] = 'events';
