@@ -17,6 +17,7 @@ $route['logout'] = 'auth/logout';
 $route['profile'] = 'profile';
 
 // Application User
+$route['users'] = 'users';
 $route['user/add'] = 'user/add';
 $route['user/update_password'] = 'users/updatePassword';
 

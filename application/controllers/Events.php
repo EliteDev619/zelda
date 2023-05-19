@@ -12,7 +12,6 @@ class Events extends CI_Controller {
         $data['link'] = 'admin';
 
 		$data['events'] = $this->events_model->getEvent();
-        $data['users'] = $this->users_model->getUser();
         getMainContent('pages/admin/event/index', $data);
 	}
 

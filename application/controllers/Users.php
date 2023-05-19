@@ -6,8 +6,13 @@ class Users extends CI_Controller {
 	public function index()
 	{
         appLoginCheck(TRUE);
+        appAdminCheck(TRUE);
+
 		$data = array();
-		getMainContent('pages/profile', $data);
+        $data['link'] = 'admin';
+
+        $data['users'] = $this->users_model->getUser();
+        getMainContent('pages/admin/user/index', $data);
 	}
 
     public function updatePassword(){
