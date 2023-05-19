@@ -21,11 +21,13 @@ $route['user/add'] = 'user/add';
 $route['user/update_password'] = 'users/updatePassword';
 
 // Application Admin
-$route['admin'] = 'admin';
+$route['admin'] = 'events';
 
 // Application Event
+$route['events'] = 'events';
 $route['events/add'] = 'events/add';
 $route['events/save'] = 'events/save';
+$route['events/edit/(:number)'] = 'events/edit/$1';
 $route['events/update'] = 'events/update';
 $route['events/delete/(:number)'] = 'events/delete/$1';
 

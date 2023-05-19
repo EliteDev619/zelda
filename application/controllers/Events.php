@@ -7,11 +7,13 @@ class Events extends CI_Controller {
 	{
         appLoginCheck(TRUE);
         appAdminCheck(TRUE);
-		$data = array();
-        $data['link'] = 'profile';
 
-		$data['user'] = $this->users_model->getUser(array('id'=>$this->session->zelda_user_id));
-		getMainContent('pages/profile', $data);
+		$data = array();
+        $data['link'] = 'admin';
+
+		$data['events'] = $this->events_model->getEvent();
+        $data['users'] = $this->users_model->getUser();
+        getMainContent('pages/admin/event/index', $data);
 	}
 
     public function add(){
@@ -19,6 +21,28 @@ class Events extends CI_Controller {
     }
 
     public function save()
+    {
+        $data = array();
+        $data = $_POST;
+        
+        $result = $this->events_model->save($data);
+        if($result){
+            _alertPopup('Event created successfully.', 'success');
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            _alertPopup('Creating event failed due to some issue.', 'warning');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    public function edit($id){
+		$data = array();
+		$data['event'] = $this->events_model->getEvent(array('id'=>$id));
+
+		getMainContent('pages/admin/event/edit', $data);
+    }
+
+    public function update()
     {
         $data = array();
         $data = $_POST;
