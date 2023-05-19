@@ -135,4 +135,5 @@ $autoload['language'] = array();
 $autoload['model'] = array(
     'users_model',
     'events_model',
+    'bets_model',
 );

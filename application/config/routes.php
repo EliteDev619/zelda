@@ -37,5 +37,5 @@ $route['events/update/(:number)'] = 'events/update/$1';
 $route['events/delete/(:number)'] = 'events/delete/$1';
 
 // Application Profile
-$route['bet'] = 'bet';
+$route['dashboard/add/(:number)'] = 'dashboard/add/$1';
 

@@ -1,15 +1,21 @@
 <?php
 
-class Events_Model extends CI_Model{
+class Bets_Model extends CI_Model{
 
     public function save($data){
-        return $this->db->insert('tbl_events', $data);
+        return $this->db->insert('tbl_bets', $data);
     }
     
+    public function getEvents($user_id){
+        $this->db->select('event_id', false);
+        $this->db->from('tbl_bets');
+        $this->db->where('user_id', $user_id);
+        return $this->db->get()->result();   
+    }
+
     public function getEvent($filter = array()){
         $this->db->select('ev.*', false);
         $this->db->from('tbl_events ev');
-        $this->db->where('ev.status', 1);
 
         // Filter by Id
         if(array_key_exists('id', $filter)){

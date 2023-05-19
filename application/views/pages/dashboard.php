@@ -37,11 +37,17 @@
                                 <p><?=$event->event_content?></p>
                                 <ul class="info">
                                     <li><i class="flaticon-coin"></i><?=$event->event_point?></li>
-                                    <li><i class="flaticon-game"></i>1v1</li>
+                                    <!-- <li><i class="flaticon-game"></i>1v1</li> -->
                                     <!-- <li><i class="flaticon-game-1"></i>Mobile</li>
                                     <li><i class="flaticon-teamwork"></i>10 Groups</li> -->
                                 </ul>
-                                <a href="<?=base_url('bet');?>" class="join-now-btn">bet Now</a>
+                                <?php 
+                                    if(!in_array($event->event_id, $betted_event)){
+                                        echo "<a href='".base_url('dashboard/add/'.$event->event_id)."' class='join-now-btn'>bet Now</a>";
+                                    } else {
+                                        echo "<p class='join-now-btn'>Already bet</p>";
+                                    }
+                                ?>
                             </div>
                         </div>
 
@@ -92,3 +98,4 @@
         <?php echo '<script> var remainTime = '.json_encode($remain).'</script>' ?>
         <script src='<?=base_url('assets/js/custom.js')?>'></script>
         <!-- End Popular Leagues Area -->
+        <?=$this->session->flashdata('message'); ?>
