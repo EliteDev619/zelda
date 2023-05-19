@@ -33,7 +33,7 @@
 
                         <div class="popular-leagues-content">
                             <div class="content">
-                                <h3><a href="single-tournament.html"><?=$event->event_title?></a></h3>
+                                <h3><a href="#"><?=$event->event_title?></a></h3>
                                 <p><?=$event->event_content?></p>
                                 <ul class="info">
                                     <li><i class="flaticon-coin"></i><?=$event->event_point?></li>
@@ -41,7 +41,7 @@
                                     <!-- <li><i class="flaticon-game-1"></i>Mobile</li>
                                     <li><i class="flaticon-teamwork"></i>10 Groups</li> -->
                                 </ul>
-                                <a href="single-tournament.html" class="join-now-btn">join Now</a>
+                                <a href="<?=base_url('bet');?>" class="join-now-btn">bet Now</a>
                             </div>
                         </div>
 
