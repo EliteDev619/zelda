@@ -40,3 +40,4 @@
         </div>
     </div>
 </section>
+<?=$this->session->flashdata('message'); ?>

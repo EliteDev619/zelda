@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-12 col-md-12">
-                <form action="<?=base_url('events/save');?>" method='POST' enctype="multipart/form-data" id='eventFrom'>
+                <form action="<?=base_url('events/update/'.$event->event_id);?>" method='POST' enctype="multipart/form-data" id='eventFrom'>
                     <div class="form-group">
                         <label>Title</label>
                         <input type="text" class="form-control" name='event_title' value='<?=$event->event_title?>' placeholder="Event Title" required>
@@ -51,3 +51,4 @@
         </div>
     </div>
 </section>
+<?=$this->session->flashdata('message'); ?>

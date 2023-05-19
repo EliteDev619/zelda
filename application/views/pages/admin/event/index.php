@@ -27,6 +27,7 @@
                             <th scope="col">Deadline</th>
                             <th scope="col">Content</th>
                             <th scope="col">Result</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
 
@@ -61,6 +62,10 @@
                             <td class="product-name">
                                 <?=$event->event_result ?>
                             </td>
+
+                            <td class="product-name">
+                                <?=$event->status == 1 ? "Active" : "Finished"  ?>
+                            </td>
                             <td class="product-subtotal">
                                 <div style='display:flex'>
                                     <a href="<?=base_url('events/edit/'.$event->event_id)?>" style='padding-right:10px'><i class='bx bx-edit'></i></a>
@@ -90,4 +95,5 @@
     </div>
 </section>
         <!-- End Cart Area -->
+        <?=$this->session->flashdata('message'); ?>
         

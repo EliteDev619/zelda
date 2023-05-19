@@ -28,6 +28,6 @@ $route['events'] = 'events';
 $route['events/add'] = 'events/add';
 $route['events/save'] = 'events/save';
 $route['events/edit/(:number)'] = 'events/edit/$1';
-$route['events/update'] = 'events/update';
+$route['events/update/(:number)'] = 'events/update/$1';
 $route['events/delete/(:number)'] = 'events/delete/$1';
 

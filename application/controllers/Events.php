@@ -42,12 +42,12 @@ class Events extends CI_Controller {
 		getMainContent('pages/admin/event/edit', $data);
     }
 
-    public function update()
+    public function update($id)
     {
         $data = array();
         $data = $_POST;
         
-        $result = $this->events_model->save($data);
+        $result = $this->events_model->update($data, $id);
         if($result){
             _alertPopup('Event created successfully.', 'success');
             redirect($_SERVER['HTTP_REFERER']);
