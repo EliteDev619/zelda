@@ -5,37 +5,30 @@ class Bets_Model extends CI_Model{
     public function save($data){
         return $this->db->insert('tbl_bets', $data);
     }
-    
-    public function getEvents($user_id){
-        $this->db->select('event_id', false);
-        $this->db->from('tbl_bets');
-        $this->db->where('user_id', $user_id);
-        return $this->db->get()->result();   
-    }
 
-    public function getEvent($filter = array()){
-        $this->db->select('ev.*', false);
-        $this->db->from('tbl_events ev');
+    public function getBet($filter = array()){
+        $this->db->select('b.*', false);
+        $this->db->from('tbl_bets b');
 
         // Filter by Id
         if(array_key_exists('id', $filter)){
-            $this->db->where('ev.event_id', $filter['id']);
+            $this->db->where('b.bet_id', $filter['id']);
             return $this->db->get()->row();   
         }
 
-        // Filter by Role
-        if(array_key_exists('role', $filter)){
-            $this->db->where('ev.role_id', $filter['role']);
+        // Filter by user_id
+        if(array_key_exists('user_id', $filter)){
+            $this->db->where('b.user_id', $filter['user_id']);
         }
 
-        // Filter by username
-        if(array_key_exists('username', $filter)){
-            $this->db->where('ev.username', $filter['username']);
+        // Filter by user_id
+        if(array_key_exists('user_id', $filter)){
+            $this->db->where('b.user_id', $filter['user_id']);
         }
 
-        // Filter by password
-        if(array_key_exists('password', $filter)){
-            $this->db->where('ev.password', $filter['password']);
+        // Filter by bet_on
+        if(array_key_exists('bet_on', $filter)){
+            $this->db->where('b.bet_on', $filter['bet_on']);
         }
 
         $result = $this->db->get()->result();

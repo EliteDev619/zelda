@@ -29,6 +29,7 @@ class Users extends CI_Controller {
         $data = $_POST;
         $data['password'] = md5($_POST['pwd_plain']);
         $data['last_freebet_update'] = date('Y-m-d');
+        $data['freebet'] = 1;
 
         $check_username = $this->users_model->getUser(array("username"=>$data['username']));
         if(!$check_username){

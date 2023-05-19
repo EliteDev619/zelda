@@ -11,7 +11,7 @@ class Dashboard extends CI_Controller {
 		$data['events'] = $this->events_model->getEvent();
         $data['server_time'] = time();
 
-		$data['betted_event'] = $this->getBettedEvent($this->bets_model->getEvents($this->session->zelda_user_id));
+		$data['betted_event'] = $this->getBettedEvent($this->bets_model->getBet(array('user_id'=>$this->session->zelda_user_id)));
 
 		getMainContent('pages/dashboard', $data);
 	}
@@ -21,26 +21,30 @@ class Dashboard extends CI_Controller {
         $data = array();
         $data['link'] = 'home';
 
+		$user_id = $this->session->zelda_user_id;
+		$user = $this->users_model->getUser(array('id'=>$user_id));
+
         if(!$this->session->zelda_user_id){
             _alertPopup('Please login to bet.', 'info');
             redirect($_SERVER['HTTP_REFERER']);
         }
 
-        if($this->session->zelda_user_data->freebet <= 0){
+        if($user->freebet <= 0){
             _alertPopup('No enough freebet.', 'error');
             redirect($_SERVER['HTTP_REFERER']);
         }
 
-		$user_id = $this->session->zelda_user_id;
 
 		$save_data = array();
 		$save_data['event_id'] = $event_id;
 		$save_data['user_id'] = $user_id;
+		$save_data['bet_on'] = date('Y-m-d');
+
 		$result = $this->bets_model->save($save_data);
 		if($result){
 			$user_data = $this->users_model->getUser(array('id'=>$user_id));
 			$this->users_model->update(array('freebet'=>$user_data->freebet - 1),$user_id);
-			
+
 			_alertPopup('Bet successfully.', 'success');
 			redirect($_SERVER['HTTP_REFERER']);
 		} else {
