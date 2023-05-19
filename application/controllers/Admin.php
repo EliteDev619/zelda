@@ -13,6 +13,6 @@ class Admin extends CI_Controller {
 
         $data['events'] = $this->events_model->getEvent();
         $data['users'] = $this->users_model->getUser();
-        getMainContent('pages/admin/dashboard', $data);
+        getMainContent('pages/event/index', $data);
 	}
 }

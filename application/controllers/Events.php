@@ -14,7 +14,11 @@ class Events extends CI_Controller {
 		getMainContent('pages/profile', $data);
 	}
 
-    public function add()
+    public function add(){
+		getMainContent('pages/admin/event/add', []);
+    }
+
+    public function save()
     {
         $data = array();
         $data = $_POST;

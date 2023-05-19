@@ -5,6 +5,7 @@ $( document ).ready(function() {
     setInterval(() => {
         getTime();
     }, 1000);
+
 });
 
 function getTime(){
@@ -19,3 +20,4 @@ function getTime(){
         remainTime[key] = value - 1;
     }
 }
+

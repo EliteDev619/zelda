@@ -25,6 +25,7 @@ $route['admin'] = 'admin';
 
 // Application Event
 $route['events/add'] = 'events/add';
+$route['events/save'] = 'events/save';
 $route['events/update'] = 'events/update';
 $route['events/delete/(:number)'] = 'events/delete/$1';
 
