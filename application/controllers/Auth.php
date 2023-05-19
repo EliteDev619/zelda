@@ -39,31 +39,6 @@ class Auth extends CI_Controller {
         }
     }
 
-    public function register()
-    {
-        $data = array();
-        $data['username'] = $_POST['username'];
-        $data['email'] = $_POST['email'];
-        $data['password'] = md5($_POST['password']);
-        $data['pwd_plain'] = $_POST['password'];
-
-        $check_username = $this->users_model->getUser(array("username"=>$data['username']));
-        if(!$check_username){
-            $result = $this->users_model->save($data);
-            if($result){
-                _alertPopup('Your account created successfully.', 'success');
-                redirect($_SERVER['HTTP_REFERER']);
-            } else {
-                _alertPopup('Register failed due to some issue.', 'warning');
-                redirect($_SERVER['HTTP_REFERER']);
-            }
-        } else {
-            _alertPopup('Username already exist.', 'error');
-            redirect($_SERVER['HTTP_REFERER']);
-        }   
-
-    }
-
     public function logout(){
         appLogout();
     }

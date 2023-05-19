@@ -9,6 +9,8 @@ class Profile extends CI_Controller {
 		$data = array();
         $data['link'] = 'profile';
 
+		
+
 		$data['user'] = $this->users_model->getUser(array('id'=>$this->session->zelda_user_id));
 		getMainContent('pages/profile', $data);
 	}

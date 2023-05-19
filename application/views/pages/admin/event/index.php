@@ -12,7 +12,7 @@
 <section class="cart-area ptb-20">
     <div class="container">
         <div class='row' style="padding-bottom:20px">
-            <a class="nav-link" href="<?=base_url('events/add')?>"><button type="button" class="default-btn">Add Events</button></a>
+            <a class="nav-link" href="<?=base_url('events/add')?>"><button type="button" class="default-btn">Add Event</button></a>
         </div>
         <form>
             <div class="cart-table table-responsive">

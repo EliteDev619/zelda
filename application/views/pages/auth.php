@@ -50,7 +50,7 @@
                         <div class="register-form">
                             <h2>Register</h2>
 
-                            <form action="<?=base_url('auth/register');?>" method='POST' enctype="multipart/form-data">
+                            <form action="<?=base_url('users/save');?>" method='POST' enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input type="text" class="form-control" name='username' placeholder="Username or email" required>
@@ -63,7 +63,7 @@
 
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" name='password' placeholder="Password" required>
+                                    <input type="password" class="form-control" name='pwd_plain' placeholder="Password" required>
                                 </div>
 
                                 <p class="description">The password should be at least eight characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ & )</p>

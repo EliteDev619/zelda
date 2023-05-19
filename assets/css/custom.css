@@ -27,3 +27,15 @@
 .admin-nabvar{
     padding-top:120px
 }
+
+.profile_items{
+    list-style: none;
+    padding: 15px;
+    background: #22152c;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #0d0303;
+    border-radius: 7px;
+    color: red;
+    font-size: 34px;
+}
