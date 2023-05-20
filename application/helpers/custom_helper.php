@@ -125,6 +125,7 @@ if (!function_exists('update_freebet')) {
 			$temp_data['user_id'] = $user_id;
 			$is_used = $ci->bets_model->getBet($temp_data);
 			
+			$temp_data = array();
 			$temp_data['last_freebet_update'] = date('Y-m-d');
 			if($is_used){
 				$temp_data['freebet'] = $data['user']->freebet + 1;
