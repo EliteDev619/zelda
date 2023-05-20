@@ -43,7 +43,7 @@
 
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="description" role="tabpanel">
-                            <div class="login-form">
+                            <div class="login-form" style='margin-right:0px'>
                                 <h2>Change Password</h2>
 
                                 <form action="<?=base_url('user/update_password');?>" method='POST' enctype="multipart/form-data">

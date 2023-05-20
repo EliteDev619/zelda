@@ -31,6 +31,21 @@
                             </div>
                         </div>
 
+                        <?php 
+                            $date = explode('-', $event->event_deadline); 
+                            $time = explode('T', $date[2])[1];
+                            $day = explode('T', $date[2])[0];
+                            $hour = explode(':', $time)[0];
+                            $zone = '';
+                            if((int)$hour < 12){
+                                $zone = 'AM';
+                            } else {
+                                $zone = 'PM';
+                            }
+                            
+                            $remainTime = (int)strtotime($event->event_deadline) - (int)$server_time;
+                        ?>
+                        
                         <div class="popular-leagues-content">
                             <div class="content">
                                 <h3><a href="#"><?=$event->event_title?></a></h3>
@@ -42,10 +57,12 @@
                                     <li><i class="flaticon-teamwork"></i>10 Groups</li> -->
                                 </ul>
                                 <?php 
-                                    if(!in_array($event->event_id, $betted_event)){
-                                        echo "<a href='".base_url('dashboard/add/'.$event->event_id)."' class='join-now-btn'>bet Now</a>";
-                                    } else {
-                                        echo "<p class='join-now-btn'>Already bet</p>";
+                                    if($remainTime > 0){
+                                        if(!in_array($event->event_id, $betted_event)){
+                                            echo "<a href='".base_url('dashboard/add/'.$event->event_id)."' class='join-now-btn'>bet Now</a>";
+                                        } else {
+                                            echo "<p class='join-now-btn'>Already bet</p>";
+                                        }
                                     }
                                 ?>
                             </div>
@@ -55,25 +72,11 @@
                             <div class="date">
                                 <div class="d-table">
                                     <div class="d-table-cell">
-                                        <?php 
-                                            $date = explode('-', $event->event_deadline); 
-                                            $time = explode('T', $date[2])[1];
-                                            $day = explode('T', $date[2])[0];
-                                            $hour = explode(':', $time)[0];
-                                            $zone = '';
-                                            if((int)$hour < 12){
-                                                $zone = 'AM';
-                                            } else {
-                                                $zone = 'PM';
-                                            }
-                                        ?>
-
                                         <span><?=$date[0];?></span>
                                         <h3><?=$day;?> <?php echo DateTime::createFromFormat('!m', $date[1])->format('F'); ?></h3>
                                         <p><?=$time;?> <?=$zone;?></p>
 
                                         <?php 
-                                            $remainTime = (int)strtotime($event->event_deadline) - (int)$server_time;
                                             if($remainTime > 0){
                                                 echo "<p style='margin-top:10px; color:#22152c'>Remain time <span id='clock_".$event->event_id."'></span></p>";
                                                 $remain['clock_'.$event->event_id] = $remainTime;

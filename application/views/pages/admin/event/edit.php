@@ -44,10 +44,8 @@
                             <label>Result</label>
                             <select class='form-control' name='event_result'>
                                 <option> - Select - </option>
-                                <option value='1'> Yes </option>
-                                <option value='2'> No </option>
-                                <option value='3'> Win </option>
-                                <option value='4'> Lose </option>
+                                <option value='1'> Win </option>
+                                <option value='2'> Lose </option>
                             </select>
                         </div>
                     </div>
