@@ -24,7 +24,7 @@ class Dashboard extends CI_Controller {
 		$user_id = $this->session->zelda_user_id;
 		$user = $this->users_model->getUser(array('id'=>$user_id));
 
-        if(!$this->session->zelda_user_id){
+        if(!$user_id){
             _alertPopup('Please login to bet.', 'info');
             redirect($_SERVER['HTTP_REFERER']);
         }
@@ -33,7 +33,6 @@ class Dashboard extends CI_Controller {
             _alertPopup('No enough freebet.', 'error');
             redirect($_SERVER['HTTP_REFERER']);
         }
-
 
 		$save_data = array();
 		$save_data['event_id'] = $event_id;

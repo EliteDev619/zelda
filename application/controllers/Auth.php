@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
             if(count($result) > 0){
                 $this->session->zelda_user_data = $result[0];
                 $this->session->zelda_user_id = $result[0]->user_id;
-
+                update_freebet();
                 if($result[0]->role_id == 1){
                     redirect(base_url('admin'));
                 } else {
