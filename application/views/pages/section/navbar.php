@@ -9,6 +9,7 @@
             <div class="collapse navbar-collapse mean-menu">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a href="<?=base_url();?>" class="nav-link <?php if($link == 'home') echo 'active'; ?>">Home</a></li>
+                    <li class="nav-item"><a href="<?=base_url('market');?>" class="nav-link <?php if($link == 'market') echo 'active'; ?>">Market</a></li>
 
                     <?php if($this->session->zelda_user_data): ?>
                         <?php if(!is_admin()): ?>

@@ -37,16 +37,16 @@
             <div class="col-lg-12 col-md-12">
                 <div class="products-details-tabs">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item"><a class="nav-link " id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description">Account</a></li>
-                        <li class="nav-item"><a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Membership</a></li>
+                        <li class="nav-item"><a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description">Account</a></li>
+                        <li class="nav-item"><a class="nav-link " id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Membership</a></li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade" id="description" role="tabpanel">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel">
                             <div class="login-form" style='margin-right:0px'>
                                 <h2>Change Password</h2>
 
-                                <form action="<?=base_url('user/update_password');?>" method='POST' enctype="multipart/form-data">
+                                <form action="<?=base_url('users/update_password');?>" method='POST' enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label>Current Password</label>
                                         <input type="password" class="form-control" name='c_pwd' placeholder="Current Password" required>
@@ -62,7 +62,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show active" id="reviews" role="tabpanel">
+                        <div class="tab-pane fade" id="reviews" role="tabpanel">
                             <div class="text-center">
                                 <div class="row row-cols-1 row-cols-md-2">
 

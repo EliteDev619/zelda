@@ -89,6 +89,8 @@ class Users extends CI_Controller {
             $user_id = $user_data->user_id;
             $result = $this->users_model->update($temp_data, $user_id);
             if($result){
+                $this->session->zelda_user_data->password = md5($data['n_pwd']);
+                $this->session->zelda_user_data->pwd_plain = $data['n_pwd'];
                 _alertPopup('Your account password updated successfully.', 'success');
                 redirect($_SERVER['HTTP_REFERER']);
             } else {

@@ -40,3 +40,6 @@ $route['events/delete/(:number)'] = 'events/delete/$1';
 // Application Bet
 $route['dashboard/add/(:number)'] = 'dashboard/add/$1';
 
+// Application Market
+$route['market'] = 'market';
+
