@@ -16,9 +16,9 @@ class Bets_Model extends CI_Model{
             return $this->db->get()->row();   
         }
 
-        // Filter by user_id
-        if(array_key_exists('user_id', $filter)){
-            $this->db->where('b.user_id', $filter['user_id']);
+        // Filter by event_id
+        if(array_key_exists('event_id', $filter)){
+            $this->db->where('b.event_id', $filter['event_id']);
         }
 
         // Filter by user_id

@@ -24,12 +24,12 @@
             <div class='col-md-3'>
                 <li class='profile_items'><i class="flaticon-game"></i>  <?=$user->point?>Points</li>
             </div>
-            <div class='col-md-3'>
+            <!-- <div class='col-md-3'>
                 <li class='profile_items'><i class="flaticon-game-1"></i>  <?=$user->ticket?>Tickets</li>
             </div>
             <div class='col-md-3'>
                 <li class='profile_items'><i class="flaticon-teamwork"></i>  <?=$user->freebet?>Freebets</li>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="container">
@@ -64,15 +64,15 @@
 
                         <div class="tab-pane fade" id="reviews" role="tabpanel">
                             <div class="text-center">
-                                <div class="row row-cols-1 row-cols-md-3">
+                                <div class="row row-cols-1 row-cols-md-2">
 
-                                    <div class="col mb-4">
+                                    <div class="col mb-6">
                                         <div class="card shadow-sm bg-white rounded">
                                             <div class="card-header bg-info text-white">
                                                 <h4>Basic</h4>
                                             </div>
                                             <div class="card-body bg-dark text-white">
-                                                <h1 class="my-0 fw-normal">$20<small class="text-muted">/mo</small></h1>
+                                                <h1 class="my-0 fw-normal">Free<small class="text-muted">/mo</small></h1>
                                                 <ul class="list-unstyled mt-3 mb-4">
                                                     <li>10 Users included</li>
                                                     <li>2 GB of storage</li>
@@ -84,7 +84,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col mb-4">
+                                    <div class="col mb-6">
                                         <div class="card shadow-lg bg-white rounded">
                                             <div class="card-header bg-success text-white">
                                                 <h4>Standard</h4>
@@ -98,24 +98,6 @@
                                                     <li>Help center access</li>
                                                 </ul>
                                                 <button class="btn btn-success btn-lg btn-block px-5">Sign Up</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col mb-4">
-                                        <div class="card shadow-sm bg-white rounded">
-                                            <div class="card-header bg-primary text-white">
-                                                <h4>Pro</h4>
-                                            </div>
-                                            <div class="card-body bg-dark text-white">
-                                                <h1 class="my-0 fw-normal">$80<small class="text-muted">/mo</small></h1>
-                                                <ul class="list-unstyled mt-3 mb-4">
-                                                    <li>50 Users included</li>
-                                                    <li>10 GB of storage</li>
-                                                    <li>Email support</li>
-                                                    <li>Help center access</li>
-                                                </ul>
-                                                <button class="btn btn-primary btn-lg btn-block px-5">Sign Up</button>
                                             </div>
                                         </div>
                                     </div>

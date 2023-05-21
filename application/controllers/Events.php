@@ -44,6 +44,8 @@ class Events extends CI_Controller {
 		$data = array();
 		$data['event'] = $this->events_model->getEvent(array('id'=>$id));
 
+        // var_dump($data);
+        // die();
 		getMainContent('pages/admin/event/edit', $data);
     }
 
@@ -52,8 +54,23 @@ class Events extends CI_Controller {
         $data = array();
         $data = $_POST;
         
+        if($data['event_result'] != 0){
+            $data['status'] = 2;
+        }
+        
         $result = $this->events_model->update($data, $id);
         if($result){
+            
+            if($data['event_result'] == 1){
+                $point = $this->events_model->getEvent(array('id'=>$id))->event_point;
+                
+                $bets = $this->bets_model->getBet(array('event_id'=>$id));
+                foreach ($bets as $bet) {
+                    $user_point = $this->users_model->getUser(array('id'=>$bet->user_id))->point;
+                    $this->users_model->update(array('point'=>$user_point+$point), $bet->user_id);
+                }
+            }
+
             _alertPopup('Event created successfully.', 'success');
             redirect($_SERVER['HTTP_REFERER']);
         } else {

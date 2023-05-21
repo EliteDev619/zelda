@@ -9,7 +9,6 @@ class Events_Model extends CI_Model{
     public function getEvent($filter = array()){
         $this->db->select('ev.*', false);
         $this->db->from('tbl_events ev');
-        $this->db->where('ev.status', 1);
 
         // Filter by Id
         if(array_key_exists('id', $filter)){
@@ -31,6 +30,8 @@ class Events_Model extends CI_Model{
         if(array_key_exists('password', $filter)){
             $this->db->where('ev.password', $filter['password']);
         }
+
+        $this->db->order_by("status", "asc");
 
         $result = $this->db->get()->result();
         return $result;

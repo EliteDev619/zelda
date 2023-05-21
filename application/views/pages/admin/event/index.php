@@ -60,7 +60,13 @@
                             </td>
 
                             <td class="product-name">
-                                <?=$event->event_result ?>
+                                <?php 
+                                    switch ($event->event_result) {
+                                        case '1': echo "Win"; break;
+                                        case '2': echo "Lose"; break;
+                                        default: echo ""; break;
+                                    }
+                                ?>
                             </td>
 
                             <td class="product-name">
@@ -68,7 +74,9 @@
                             </td>
                             <td class="product-subtotal">
                                 <div style='display:flex'>
+                                    <?php if($event->event_result == 0): ?>
                                     <a href="<?=base_url('events/edit/'.$event->event_id)?>" style='padding-right:10px'><i class='bx bx-edit'></i></a>
+                                    <?php endif; ?>
                                     <a href="<?=base_url('events/delete/'.$event->event_id)?>"><i class='bx bx-trash'></i></a>
                                 </div>
                             </td>

@@ -43,9 +43,14 @@
                         <div class="form-group col-md-12">
                             <label>Result</label>
                             <select class='form-control' name='event_result'>
-                                <option> - Select - </option>
-                                <option value='1'> Win </option>
-                                <option value='2'> Lose </option>
+                                <option value='0'> - Select - </option>
+                                <?php
+                                    switch($event->event_result){
+                                        case '1' : echo "<option value='1' selected> Win </option><option value='2'> Lose </option>"; break;
+                                        case '2' : echo "<option value='1'> Win </option><option value='2' selected> Lose </option>"; break;
+                                        default : echo "<option value='1'> Win </option><option value='2'> Lose </option>"; break;
+                                    }
+                                ?>
                             </select>
                         </div>
                     </div>

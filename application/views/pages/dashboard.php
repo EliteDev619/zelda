@@ -57,7 +57,7 @@
                                     <li><i class="flaticon-teamwork"></i>10 Groups</li> -->
                                 </ul>
                                 <?php 
-                                    if($remainTime > 0){
+                                    if($remainTime > 0 && $event->event_result == 0){
                                         if(!in_array($event->event_id, $betted_event)){
                                             echo "<a href='".base_url('dashboard/add/'.$event->event_id)."' class='join-now-btn'>bet Now</a>";
                                         } else {
@@ -77,11 +77,11 @@
                                         <p><?=$time;?> <?=$zone;?></p>
 
                                         <?php 
-                                            if($remainTime > 0){
+                                            if($remainTime > 0 && $event->event_result == 0){
                                                 echo "<p style='margin-top:10px; color:#22152c'>Remain time <span id='clock_".$event->event_id."'></span></p>";
                                                 $remain['clock_'.$event->event_id] = $remainTime;
                                             } else {
-                                                echo "<p>Expired</p>";
+                                                echo "<p>Finished</p>";
                                             }
                                         ?>
                                         <i class='bx bx-calendar'></i>
