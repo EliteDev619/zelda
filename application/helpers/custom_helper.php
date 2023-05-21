@@ -120,6 +120,14 @@ if (!function_exists('update_freebet')) {
 		$interval = $today->diff($last_freebet_update);
 
 		if($interval->days > 0){
+
+			$freebet_count = 1;
+			if($ci->session->zelda_user_data->plan_id == 1){
+				$freebet_count = 1;
+			} else if($ci->session->zelda_user_data->plan_id == 2){
+				$freebet_count = 3;
+			}
+
 			$temp_data = array();
 			$temp_data['bet_on'] = $data['user']->last_freebet_update;
 			$temp_data['user_id'] = $user_id;
@@ -128,7 +136,7 @@ if (!function_exists('update_freebet')) {
 			$temp_data = array();
 			$temp_data['last_freebet_update'] = date('Y-m-d');
 			if($is_used){
-				$temp_data['freebet'] = $data['user']->freebet + 1;
+				$temp_data['freebet'] = $data['user']->freebet + $freebet_count;
 			} 
 
 			$ci->users_model->update($temp_data, $user_id);

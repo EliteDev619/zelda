@@ -37,12 +37,12 @@
             <div class="col-lg-12 col-md-12">
                 <div class="products-details-tabs">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description">Account</a></li>
-                        <li class="nav-item"><a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Membership</a></li>
+                        <li class="nav-item"><a class="nav-link " id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description">Account</a></li>
+                        <li class="nav-item"><a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Membership</a></li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                        <div class="tab-pane fade" id="description" role="tabpanel">
                             <div class="login-form" style='margin-right:0px'>
                                 <h2>Change Password</h2>
 
@@ -62,24 +62,28 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="reviews" role="tabpanel">
+                        <div class="tab-pane fade show active" id="reviews" role="tabpanel">
                             <div class="text-center">
                                 <div class="row row-cols-1 row-cols-md-2">
 
                                     <div class="col mb-6">
                                         <div class="card shadow-sm bg-white rounded">
                                             <div class="card-header bg-info text-white">
-                                                <h4>Basic</h4>
+                                                <h4>Free</h4>
                                             </div>
                                             <div class="card-body bg-dark text-white">
-                                                <h1 class="my-0 fw-normal">Free<small class="text-muted">/mo</small></h1>
+                                                <h1 class="my-0 fw-normal">Free<small class="text-muted"></small></h1>
                                                 <ul class="list-unstyled mt-3 mb-4">
-                                                    <li>10 Users included</li>
+                                                    <li>1 Freebet Per day</li>
                                                     <li>2 GB of storage</li>
                                                     <li>Email support</li>
                                                     <li>Help center access</li>
                                                 </ul>
-                                                <button class="btn btn-info btn-lg btn-block px-5 text-white">Sign Up</button>
+                                                <?php if($user->plan_id == 1): ?>
+                                                <button class="btn btn-info btn-lg btn-block px-5 text-white" disabled>Current Plan</button>
+                                                <?php else: ?>
+                                                <button class="btn btn-info btn-lg btn-block px-5 text-white"><a href='<?=base_url('users/update_membership/1')?>'>Choose Plan</a></button>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -90,14 +94,18 @@
                                                 <h4>Standard</h4>
                                             </div>
                                             <div class="card-body bg-dark text-white">
-                                                <h1 class="my-0 fw-normal">$50<small class="text-muted">/mo</small></h1>
+                                                <h1 class="my-0 fw-normal">$55.55<small class="text-muted">/mo</small></h1>
                                                 <ul class="list-unstyled mt-3 mb-4">
-                                                    <li>30 Users included</li>
+                                                    <li>3 Freebet Per day</li>
                                                     <li>5 GB of storage</li>
                                                     <li>Email support</li>
                                                     <li>Help center access</li>
                                                 </ul>
-                                                <button class="btn btn-success btn-lg btn-block px-5">Sign Up</button>
+                                                <?php if($user->plan_id == 2): ?>
+                                                <button class="btn btn-success btn-lg btn-block px-5 text-white" disabled>Current Plan</button>
+                                                <?php else: ?>
+                                                <button class="btn btn-success btn-lg btn-block px-5 text-white"><a href='<?=base_url('users/update_membership/2')?>'>Choose Plan</a></button>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>

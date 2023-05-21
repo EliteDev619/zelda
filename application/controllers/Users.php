@@ -73,7 +73,7 @@ class Users extends CI_Controller {
         }
     }
 
-    public function updatePassword(){
+    public function update_password(){
         $data = array();
         $data = $_POST;
 
@@ -81,7 +81,7 @@ class Users extends CI_Controller {
         
         if($data['c_pwd'] != $user_data->pwd_plain){
             _alertPopup('Current password is incorrect.', 'error');
-            redirect(base_url('profile'));
+            redirect($_SERVER['HTTP_REFERER']);
         } else {
             $temp_data = array();
             $temp_data['password'] = md5($data['n_pwd']);
@@ -90,11 +90,27 @@ class Users extends CI_Controller {
             $result = $this->users_model->update($temp_data, $user_id);
             if($result){
                 _alertPopup('Your account password updated successfully.', 'success');
-                redirect(base_url('profile'));
+                redirect($_SERVER['HTTP_REFERER']);
             } else {
                 _alertPopup('Updating failed due to some issue.', 'warning');
-                redirect(base_url('profile'));
+                redirect($_SERVER['HTTP_REFERER']);
             }
+        }
+    }
+
+    public function update_membership($membership_id){
+        $data = array();
+
+        $user_id = $this->session->zelda_user_id;
+        $result = $this->users_model->update(array('plan_id'=>$membership_id), $user_id);
+        
+        if($result){
+            $this->session->zelda_user_data->plan_id = $membership_id;
+            _alertPopup('Your account subscription updated successfully.', 'success');
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            _alertPopup('Updating failed due to some issue.', 'warning');
+            redirect($_SERVER['HTTP_REFERER']);
         }
     }
 

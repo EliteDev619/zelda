@@ -20,7 +20,8 @@ $route['profile'] = 'profile';
 $route['users'] = 'users';
 $route['users/add'] = 'users/add';
 $route['users/save'] = 'users/save';
-$route['users/update_password'] = 'users/updatePassword';
+$route['users/update_password'] = 'users/update_password';
+$route['users/update_membership/(:number)'] = 'users/update_membership/$1';
 $route['users/edit/(:number)'] = 'users/edit/$1';
 $route['users/update/(:number)'] = 'users/update/$1';
 $route['users/delete/(:number)'] = 'users/delete/$1';
@@ -36,6 +37,6 @@ $route['events/edit/(:number)'] = 'events/edit/$1';
 $route['events/update/(:number)'] = 'events/update/$1';
 $route['events/delete/(:number)'] = 'events/delete/$1';
 
-// Application Profile
+// Application Bet
 $route['dashboard/add/(:number)'] = 'dashboard/add/$1';
 
